@@ -26,11 +26,6 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         const data = await authService.login(email, password);
 
-
-        console.log(`data::::`, data);
-        console.log(typeof data);
-        console.log(`data.user.role::::`, data.user.role);
-
         // Check if user is admin
         if (data.user.role !== 'admin') {
             throw new Error('Access denied. Admin privileges required.');
