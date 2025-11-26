@@ -24,19 +24,19 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const register = async (userData) => {
-        const data = await authService.register(userData);
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        setUser(data.user);
-        return data;
+        const response = await authService.register(userData);
+        localStorage.setItem('token', response.data.accessToken);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        setUser(response.data.user);
+        return response;
     };
 
     const login = async (email, password) => {
-        const data = await authService.login(email, password);
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        setUser(data.user);
-        return data;
+        const response = await authService.login(email, password);
+        localStorage.setItem('token', response.data.accessToken);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        setUser(response.data.user);
+        return response;
     };
 
     const logout = async () => {

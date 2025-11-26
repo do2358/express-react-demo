@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 // Add to cart validation
 export const addToCartSchema = Joi.object({
-  product: Joi.string().required().messages({
+  productId: Joi.string().required().messages({
     'any.required': 'Product ID is required',
   }),
   quantity: Joi.number().min(1).required().messages({

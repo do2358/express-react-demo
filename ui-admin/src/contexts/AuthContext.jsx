@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
             throw new Error('Access denied. Admin privileges required.');
         }
 
-        localStorage.setItem('adminToken', data.token);
+        localStorage.setItem('adminToken', data.accessToken);
         localStorage.setItem('adminUser', JSON.stringify(data.user));
         setUser(data.user);
         return data;

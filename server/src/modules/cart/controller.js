@@ -15,9 +15,9 @@ export const getCart = asyncHandler(async (req, res) => {
 // @route   POST /api/cart/add
 // @access  User
 export const addItem = asyncHandler(async (req, res) => {
-  const { product, quantity } = req.body;
+  const { productId, quantity } = req.body;
   
-  const cart = await cartService.addToCart(req.user._id, product, quantity);
+  const cart = await cartService.addToCart(req.user._id, productId, quantity);
   
   successResponse(res, { cart }, 'Item added to cart successfully');
 });
