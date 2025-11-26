@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
         try {
             setLoading(true);
             const data = await cartService.getCart();
-            setCart(data.data);
+            setCart(data.data.cart);
         } catch (error) {
             console.error('Error fetching cart:', error);
             setCart(null);
@@ -32,25 +32,25 @@ export const CartProvider = ({ children }) => {
 
     const addToCart = async (productId, quantity = 1) => {
         const data = await cartService.addToCart(productId, quantity);
-        setCart(data.data);
+        setCart(data.data.cart);
         return data;
     };
 
     const updateCartItem = async (itemId, quantity) => {
         const data = await cartService.updateCart(itemId, quantity);
-        setCart(data.data);
+        setCart(data.data.cart);
         return data;
     };
 
     const removeFromCart = async (itemId) => {
         const data = await cartService.removeFromCart(itemId);
-        setCart(data.data);
+        setCart(data.data.cart);
         return data;
     };
 
     const clearCart = async () => {
         const data = await cartService.clearCart();
-        setCart(data.data);
+        setCart(data.data?.cart || null);
         return data;
     };
 
