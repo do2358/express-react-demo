@@ -60,7 +60,7 @@ export const register = async (userData) => {
 export const login = async (email, password) => {
   // Find user with password field
   const user = await User.findOne({ email }).select('+password');
-  
+
   if (!user) {
     const error = new Error('Invalid credentials');
     error.statusCode = 401;

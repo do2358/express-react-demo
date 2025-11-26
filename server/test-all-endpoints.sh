@@ -29,7 +29,7 @@ curl -s -X POST $BASE_URL/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@test.com",
-    "password": "User123",
+    "password": "User123456#",
     "name": "Test User",
     "phone": "9876543210"
   }' | python3 -m json.tool | tee $TEMP_DIR/user_register.json
@@ -41,7 +41,7 @@ curl -s -X POST $BASE_URL/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "user@test.com",
-    "password": "User123"
+    "password": "User123456#"
   }' | python3 -m json.tool | tee $TEMP_DIR/user_login.json
 echo ""
 
